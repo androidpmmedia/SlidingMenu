@@ -8,6 +8,8 @@ import android.view.ViewGroup.LayoutParams;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
+// Modified to work with ActionBarSherlock: https://github.com/jfeinstein10/SlidingMenu#setup-with-actionbarsherlock
+//public class SlidingActivity extends Activity implements SlidingActivityBase {
 public class SlidingActivity extends Activity implements SlidingActivityBase {
 
 	private SlidingActivityHelper mHelper;
