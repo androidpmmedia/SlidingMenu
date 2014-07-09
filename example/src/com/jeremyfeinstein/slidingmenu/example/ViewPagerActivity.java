@@ -14,73 +14,68 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 
 public class ViewPagerActivity extends BaseActivity {
 
-	public ViewPagerActivity() {
-		super(R.string.viewpager);
-	}
+  public ViewPagerActivity() {
+    super(R.string.viewpager);
+  }
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
+  @Override
+  public void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
 
-		ViewPager vp = new ViewPager(this);
-		vp.setId("VP".hashCode());
-		vp.setAdapter(new ColorPagerAdapter(getSupportFragmentManager()));
-		setContentView(vp);
+    ViewPager vp = new ViewPager(this);
+    vp.setId("VP".hashCode());
+    vp.setAdapter(new ColorPagerAdapter(getSupportFragmentManager()));
+    setContentView(vp);
 
-		vp.setOnPageChangeListener(new OnPageChangeListener() {
-			@Override
-			public void onPageScrollStateChanged(int arg0) { }
+    vp.setOnPageChangeListener(new OnPageChangeListener() {
+      @Override
+      public void onPageScrollStateChanged(int arg0) {
+      }
 
-			@Override
-			public void onPageScrolled(int arg0, float arg1, int arg2) { }
+      @Override
+      public void onPageScrolled(int arg0, float arg1, int arg2) {
+      }
 
-			@Override
-			public void onPageSelected(int position) {
-				switch (position) {
-				case 0:
-					getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-					break;
-				default:
-					getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-					break;
-				}
-			}
+      @Override
+      public void onPageSelected(int position) {
+        switch (position) {
+          case 0:
+            getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+            break;
+          default:
+            getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+            break;
+        }
+      }
+    });
 
-		});
-		
-		vp.setCurrentItem(0);
-		getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-	}
+    vp.setCurrentItem(0);
+    getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+  }
 
-	public class ColorPagerAdapter extends FragmentPagerAdapter {
-		
-		private ArrayList<Fragment> mFragments;
+  public class ColorPagerAdapter extends FragmentPagerAdapter {
 
-		private final int[] COLORS = new int[] {
-			R.color.red,
-			R.color.green,
-			R.color.blue,
-			R.color.white,
-			R.color.black
-		};
-		
-		public ColorPagerAdapter(FragmentManager fm) {
-			super(fm);
-			mFragments = new ArrayList<Fragment>();
-			for (int color : COLORS)
-				mFragments.add(new ColorFragment(color));
-		}
+    private ArrayList<Fragment> mFragments;
 
-		@Override
-		public int getCount() {
-			return mFragments.size();
-		}
+    private final int[] COLORS = new int[] {
+        R.color.red, R.color.green, R.color.blue, R.color.white, R.color.black
+    };
 
-		@Override
-		public Fragment getItem(int position) {
-			return mFragments.get(position);
-		}
+    public ColorPagerAdapter(FragmentManager fm) {
+      super(fm);
+      mFragments = new ArrayList<Fragment>();
+      for (int color : COLORS)
+        mFragments.add(new ColorFragment(color));
+    }
 
-	}
+    @Override
+    public int getCount() {
+      return mFragments.size();
+    }
 
+    @Override
+    public Fragment getItem(int position) {
+      return mFragments.get(position);
+    }
+  }
 }
