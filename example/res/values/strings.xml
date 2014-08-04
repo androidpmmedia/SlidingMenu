@@ -26,7 +26,7 @@
     type. On phones, the menu will be placed inside a SlidingMenu, while on tablets the menu will be
     exposed alongside the content because we have enough room to always show it.
   </string>
-  <string name="about">About</string>
+  <string name="chatUpLine">About</string>
   <string name="licenses">Licenses</string>
   <string name="contact">Contact</string>
   <string name="about_msg">&lt;b>SlidingMenu&lt;/b> is an Open Source Android library
